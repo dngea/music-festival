@@ -33,19 +33,6 @@ export function html(done) {
     done();
 }
 
-// IMG
-export function img(done) {
-    src('src/img/**/*') // Adjust path as needed
-        .pipe(dest('build/img/'));
-    done();
-}
-// VIDEO
-export function video(done) {
-    src('video/**/*') // Adjust path as needed
-        .pipe(dest('build/video/'));
-    done();
-}
-
 export function replacePaths(done) {
     // Reemplazar rutas en archivos .js
     src('build/**/*.js')
@@ -74,4 +61,4 @@ export function dev() {
 }
 
 
-export default series(js, css, html, img, video, replacePaths)
+export default series(js, css, html)
