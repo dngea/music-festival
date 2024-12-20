@@ -41,9 +41,16 @@ export function img(done) {
 }
 
 export function replacePaths(done) {
-    return src('build/**/*.js')  // O también puedes hacerlo para archivos JS si es necesario
-        .pipe(replace('src/img/', 'img/'))  // Cambia la ruta src/img/ por img/
-        .pipe(dest('build/'));  // Guarda los cambios en el directorio build
+    // Reemplazar rutas en archivos .js
+    src('build/**/*.js')
+        .pipe(replace('src/img/', 'img/'))  // Reemplazar src/img/ por img/
+        .pipe(dest('build/'));  // Guardar los cambios en el directorio build
+
+    // Reemplazar rutas en archivos .html
+    src('build/**/*.html')
+        .pipe(replace('src/img/', 'img/'))  // Reemplazar src/img/ por img/
+        .pipe(dest('build/'));  // Guardar los cambios en el directorio build
+
     done();
 }
 
