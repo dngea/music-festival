@@ -1,0 +1,14 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use "sass:color";
+
+.footer{
+    background-color: v.$rosa;
+    padding: 2rem 0;
+
+    p{
+        color: v.$blanco;
+        margin: 0;
+        text-align: center;
+    }
+}
