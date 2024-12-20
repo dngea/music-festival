@@ -13,12 +13,22 @@ import terser from 'gulp-terser'
 import sharp from 'sharp'
 
 // JS
-export function js(done){
+export function js(done) {
     src('src/js/app.js')
         .pipe(terser())
+        .on('error', function(err) {
+            console.error('Error en la tarea JS:', err.message);
+            this.emit('end');  // Esto asegura que Gulp siga ejecutando otras tareas
+        })
+        .pipe(replace('build/src/', 'src/'))
         .pipe(dest('build/js'))
-    done()
+        .on('end', done)
+        .on('error', (err) => {
+            console.log('Tarea JS fallida:', err);
+            done(err);
+        });
 }
+
 
 // CSS
 export function css(done){

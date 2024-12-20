@@ -25,9 +25,9 @@ function crearGaleria(){
     for(let i = 1; i <= numeroImagenes; i++){
         const imagen = document.createElement('PICTURE') // Uppercase convención para crear elementos
         imagen.innerHTML = `
-        <source srcset="src/img/gallery/thumb/${i}.avif" type="image/avif">
-        <source srcset="src/img/gallery/thumb/${i}.webp" type="image/webp">
-        <img loading="lazy" width="200" height="300" src="src/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
+        <source srcset="build/src/img/gallery/thumb/${i}.avif" type="image/avif">
+        <source srcset="build/src/img/gallery/thumb/${i}.webp" type="image/webp">
+        <img loading="lazy" width="200" height="300" src="build/src/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
         `;
         
         // añadele un EVENT HANDLER a cada una
@@ -44,9 +44,9 @@ function mostrarImagen(i){
     // crear imagen en grande
     const imagen = document.createElement('PICTURE') 
     imagen.innerHTML = `
-    <source srcset="src/img/gallery/full/${i}.avif" type="image/avif">
-    <source srcset="src/img/gallery/full/${i}.webp" type="image/webp">
-    <img loading="lazy" width="200" height="300" src="src/img/gallery/full/${i}.jpg" alt="imagen galeria">
+    <source srcset="build/src/img/gallery/full/${i}.avif" type="image/avif">
+    <source srcset="build/src/img/gallery/full/${i}.webp" type="image/webp">
+    <img loading="lazy" width="200" height="300" src="build/src/img/gallery/full/${i}.jpg" alt="imagen galeria">
 `;
 
     // creat botón de cierre
