@@ -3,6 +3,7 @@ import * as dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 
 const sass = gulpSass(dartSass)
+const { parallel } = require('gulp');
 
 export function js(done){
     src('src/js/app.js')
@@ -22,7 +23,5 @@ export function dev() {
     watch('src/js/**/*.js', js) // segundo parámentro llama a js()
 }
 
-export const build = parallel(js, css)
 
-
-export default series(build, dev)
+export default series(js, css, dev)
