@@ -24,11 +24,11 @@ export function css(done){
 }
 
 // HTML
-export function html(done) {
-    src('index.html') // Adjust path as needed
-        .pipe(dest('build'));
-    done();
-}
+// export function html(done) {
+//     src('index.html') // Adjust path as needed
+//         .pipe(dest('build'));
+//     done();
+// }
 
 export function redirects(done) {
     src('_redirects') // Assuming it's in the root of your project
