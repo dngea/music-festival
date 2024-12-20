@@ -43,4 +43,4 @@ export function dev() {
 }
 
 
-export default series(js, css, html, redirects)
+export default series(js, css, redirects)
