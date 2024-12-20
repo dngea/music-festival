@@ -23,6 +23,19 @@ export function css(done){
     done()
 }
 
+// HTML
+export function html(done) {
+    src('index.html') // Adjust path as needed
+        .pipe(dest('build'));
+    done();
+}
+
+export function redirects(done) {
+    src('_redirects') // Assuming it's in the root of your project
+        .pipe(dest('build')); // Move it to the build folder
+    done();
+}
+
 // use for production environment, run infinitely looking for changes
 export function dev() {
     watch('src/sass/**/*.scss', css) // segundo parámentro llama a css()
@@ -30,4 +43,4 @@ export function dev() {
 }
 
 
-export default series(js, css)
+export default series(js, css, html, redirects)
