@@ -28,4 +28,4 @@ export function dev() {
 }
 
 
-export default series(js, css, dev)
+export default series(js, css)
