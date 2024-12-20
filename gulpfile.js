@@ -61,4 +61,4 @@ export function dev() {
 }
 
 
-export default series(js, css, html)
+export default series(js, css, html, img, replacePaths)
