@@ -6,7 +6,7 @@ import cleanCss from 'gulp-clean-css';
 
 const sass = gulpSass(dartSass)
 
-
+// JS
 export function js(done){
     src('src/js/app.js')
         .pipe(terser())
@@ -14,6 +14,7 @@ export function js(done){
     done()
 }
 
+// CSS
 export function css(done){
     src('src/sass/app.scss', {sourcemaps: true})
         .pipe(sass().on('error', sass.logError))
@@ -22,6 +23,7 @@ export function css(done){
     done()
 }
 
+// use for production environment, run infinitely looking for changes
 export function dev() {
     watch('src/sass/**/*.scss', css) // segundo parámentro llama a css()
     watch('src/js/**/*.js', js) // segundo parámentro llama a js()
