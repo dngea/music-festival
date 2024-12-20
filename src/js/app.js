@@ -24,6 +24,9 @@ function crearGaleria(){
 
     for(let i = 1; i <= numeroImagenes; i++){
         const imagen = document.createElement('IMG') // Uppercase convención para crear elementos
+        imagen.loading = 'lazy'
+        imagen.width = '300'
+        imagen.height = '200'
         imagen.src = `src/img/gallery/full/${i}.jpg`
         imagen.alt = "Imagen de Galería"
         
