@@ -3,6 +3,7 @@ import * as dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 import terser from 'gulp-terser'
 import cleanCss from 'gulp-clean-css'; 
+import replace from 'gulp-replace';
 
 const sass = gulpSass(dartSass)
 
@@ -24,11 +25,14 @@ export function css(done){
 }
 
 // HTML
-// export function html(done) {
-//     src('index.html') // Adjust path as needed
-//         .pipe(dest('build'));
-//     done();
-// }
+export function html(done) {
+    src('index.html') // Adjust path as needed
+        .pipe(replace('build/css/', 'css/'))
+        .pipe(replace('build/js/', 'js/'))
+        .pipe(dest('build'));
+    done();
+}
+
 
 export function redirects(done) {
     src('_redirects') // Assuming it's in the root of your project
@@ -43,4 +47,4 @@ export function dev() {
 }
 
 
-export default series(js, css, redirects)
+export default series(js, css, html, redirects)
