@@ -33,6 +33,20 @@ export function html(done) {
     done();
 }
 
+// IMG
+export function img(done) {
+    src('src/img/**/*') // Adjust path as needed
+        .pipe(dest('build/img/'));
+    done();
+}
+
+export function replacePaths(done) {
+    return src('build/**/*.js')  // O también puedes hacerlo para archivos JS si es necesario
+        .pipe(replace('src/img/', 'img/'))  // Cambia la ruta src/img/ por img/
+        .pipe(dest('build/'));  // Guarda los cambios en el directorio build
+    done();
+}
+
 
 export function redirects(done) {
     src('_redirects') // Assuming it's in the root of your project
