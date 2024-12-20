@@ -22,4 +22,7 @@ export function dev() {
     watch('src/js/**/*.js', js) // segundo parámentro llama a js()
 }
 
-export default series(js, css, dev)
+export const build = parallel(js, css)
+
+
+export default series(build, dev)
