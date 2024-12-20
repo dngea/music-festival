@@ -1,12 +1,15 @@
 import {src, dest, watch, series} from 'gulp'
 import * as dartSass from 'sass'
 import gulpSass from 'gulp-sass'
+import terser from 'gulp-terser'
+import cleanCss from 'gulp-clean-css'; 
 
 const sass = gulpSass(dartSass)
-const { parallel } = require('gulp');
+
 
 export function js(done){
     src('src/js/app.js')
+        .pipe(terser())
         .pipe(dest('build/js'))
     done()
 }
@@ -14,7 +17,8 @@ export function js(done){
 export function css(done){
     src('src/sass/app.scss', {sourcemaps: true})
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('build/css', {sourcemaps: true}))
+        .pipe(cleanCss())
+        .pipe(dest('build/css', {sourcemaps: '.'}))
     done()
 }
 

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "sass": "sass --watch src/sass:build/css",
-    "dev": "gulp"
+    "build": "gulp"
   },
   "keywords": [
     "SASS",
@@ -17,7 +17,9 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^6.0.0",
+    "gulp-terser": "^2.1.0",
     "sass": "^1.82.0"
   }
 }
