@@ -19,7 +19,7 @@ function navegacionFija() {
 }
 
 function crearGaleria(){
-    const numeroImagenes = 16
+    const numeroImagenes = 7
     const galeria = document.querySelector('.galeria-imagenes')
 
     for(let i = 1; i <= numeroImagenes; i++){

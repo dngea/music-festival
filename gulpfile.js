@@ -127,7 +127,7 @@ function procesarImagenes(file, outputSubDir) {
     sharp(file).avif().toFile(outputFileAvif)
 }
 
-// use for production environment, run infinitely looking for changes
+// use for development environment, run infinitely looking for changes
 export function dev() {
     watch('src/sass/**/*.scss', css) // segundo parámentro llama a css()
     watch('src/js/**/*.js', js) // segundo parámentro llama a js()
@@ -135,4 +135,4 @@ export function dev() {
 }
 
 
-export default series(crop, js, css, html, imagenes)
+export default series(crop, js, css, html, imagenes) // añade o quita dev para usar el modo infinito de "watch"
